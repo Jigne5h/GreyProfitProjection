@@ -1,0 +1,89 @@
+{
+    "purchase": {
+        "purchaseBillNumber": 406,
+        "greyPurchasedQuantity": 10330,
+        "totalPurchasePayment": 511454,
+        "totalPurchaseGST": 24880.3,
+        "purchaseDalali": 3848,
+        "purchaseTransport": 10000
+    },
+    "sales": [
+        {
+            "sellBillNumber": 324,
+            "greySoldQuantity": 431,
+            "sellPayment": 21974,
+            "sellGST": 1098.7,
+            "dalali": 0
+        },
+        {
+            "sellBillNumber": 325,
+            "greySoldQuantity": 1903,
+            "sellPayment": 96101,
+            "sellGST": 4805.05,
+            "dalali": 0
+        },
+        {
+            "sellBillNumber": 326,
+            "greySoldQuantity": 1211,
+            "sellPayment": 61458,
+            "sellGST": 3072.9,
+            "dalali": 0
+        },
+        {
+            "sellBillNumber": 330,
+            "greySoldQuantity": 402,
+            "sellPayment": 20288,
+            "sellGST": 1014.4000000000001,
+            "dalali": 0
+        },
+        {
+            "sellBillNumber": 318,
+            "greySoldQuantity": 1042,
+            "sellPayment": 54184,
+            "sellGST": 2709.2000000000003,
+            "dalali": 812.76
+        },
+        {
+            "sellBillNumber": 319,
+            "greySoldQuantity": 1575,
+            "sellPayment": 81900,
+            "sellGST": 4095,
+            "dalali": 1228.5
+        },
+        {
+            "sellBillNumber": 320,
+            "greySoldQuantity": 533,
+            "sellPayment": 27982,
+            "sellGST": 1399.1000000000001,
+            "dalali": 419.73
+        },
+        {
+            "sellBillNumber": 321,
+            "greySoldQuantity": 539,
+            "sellPayment": 28567,
+            "sellGST": 1428.3500000000001,
+            "dalali": 428.505
+        },
+        {
+            "sellBillNumber": 322,
+            "greySoldQuantity": 538,
+            "sellPayment": 28783,
+            "sellGST": 1439.15,
+            "dalali": 431.745
+        },
+        {
+            "sellBillNumber": 327,
+            "greySoldQuantity": 1054,
+            "sellPayment": 52678,
+            "sellGST": 2633.9,
+            "dalali": 526.78
+        },
+        {
+            "sellBillNumber": 323,
+            "greySoldQuantity": 1556,
+            "sellPayment": 81690,
+            "sellGST": 4084.5,
+            "dalali": 1225.3500000000001
+        }
+    ]
+}

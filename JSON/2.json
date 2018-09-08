@@ -1,0 +1,26 @@
+{
+    "purchase": {
+        "purchaseBillNumber": 2,
+        "greyPurchasedQuantity": 1000,
+        "totalPurchasePayment": 5000,
+        "totalPurchaseGST": 150,
+        "purchaseDalali": 1000,
+        "purchaseTransport": 1000
+    },
+    "sales": [
+        {
+            "sellBillNumber": 1,
+            "greySoldQuantity": 500,
+            "sellPayment": 3000,
+            "sellGST": 150,
+            "dalali": 45
+        },
+        {
+            "sellBillNumber": 1,
+            "greySoldQuantity": 500,
+            "sellPayment": 3000,
+            "sellGST": 150,
+            "dalali": 45
+        }
+    ]
+}

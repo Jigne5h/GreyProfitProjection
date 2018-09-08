@@ -1,0 +1,75 @@
+{
+    "purchase": {
+        "purchaseBillNumber": 433,
+        "greyPurchasedQuantity": 4271,
+        "totalPurchasePayment": 161559,
+        "totalPurchaseGST": 8077.95,
+        "purchaseDalali": 0,
+        "purchaseTransport": 0
+    },
+    "sales": [
+        {
+            "sellBillNumber": 351,
+            "greySoldQuantity": 411,
+            "sellPayment": 16851,
+            "sellGST": 842.5500000000001,
+            "dalali": 337.02
+        },
+        {
+            "sellBillNumber": 352,
+            "greySoldQuantity": 312,
+            "sellPayment": 12792,
+            "sellGST": 639.6,
+            "dalali": 191.88
+        },
+        {
+            "sellBillNumber": 353,
+            "greySoldQuantity": 481,
+            "sellPayment": 19240,
+            "sellGST": 962,
+            "dalali": 384.8
+        },
+        {
+            "sellBillNumber": 354,
+            "greySoldQuantity": 583,
+            "sellPayment": 23320,
+            "sellGST": 1166,
+            "dalali": 349.8
+        },
+        {
+            "sellBillNumber": 355,
+            "greySoldQuantity": 580,
+            "sellPayment": 22736,
+            "sellGST": 1136.8,
+            "dalali": 454.72
+        },
+        {
+            "sellBillNumber": 356,
+            "greySoldQuantity": 580,
+            "sellPayment": 22736,
+            "sellGST": 1136.8,
+            "dalali": 454.72
+        },
+        {
+            "sellBillNumber": 357,
+            "greySoldQuantity": 577,
+            "sellPayment": 22791,
+            "sellGST": 1139.55,
+            "dalali": 341.865
+        },
+        {
+            "sellBillNumber": 359,
+            "greySoldQuantity": 586,
+            "sellPayment": 22396,
+            "sellGST": 1119.8,
+            "dalali": 447.92
+        },
+        {
+            "sellBillNumber": 358,
+            "greySoldQuantity": 422,
+            "sellPayment": 17302,
+            "sellGST": 865.1,
+            "dalali": 259.53000000000003
+        }
+    ]
+}

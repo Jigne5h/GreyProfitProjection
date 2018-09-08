@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script src="./js/angular.js"></script>
+    <script src="./js/index.js"></script>
+    <script src="./js/controller.js"></script>
+
+    <script src="./js/jquery-2.2.4.min.js"></script>
+    <script src="./js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+
+    <title>Profit Projection</title>
+</head>
+
+<body ng-app="myApp" ng-controller="formCtrl" class="container-fluid">
+
+    <input type="number" ng-model="getPurchaseBillNumber" ng-required="true">
+    <button ng-click="get(getPurchaseBillNumber)">Get this order</button>
+
+    <div class="col-sm-12">
+        <form name="myForm" novalidate ng-show="!isPrint">
+            <h2 class="text-center col-sm-12">LOT NO : {{purchaseBillNumber}}</h2>
+
+            <div class="col-sm-6">
+                <h1>Purchase Section</h1>
+                Purchase Bill Number:
+                <input type="number" ng-model="purchaseBillNumber" ng-required="true">
+                <br>
+                <br> Grey Purchase Quantity:
+                <input type="number" ng-model="greyPurchasedQuantity" ng-required="true">
+                <br>
+                <br> Item Name:
+                <input type="text" ng-model="itemName" ng-required="true">
+                <br>
+                <br> Payment for purchase:
+                <input type="number" ng-model="purchasePayment" ng-required="true"> GST : {{purchaseGST = purchasePayment*0.05 | currency : 'Rs.'}}
+                <br>
+                <br> Processing Payment:
+                <input type="number" ng-model="processingPayment" ng-required="true"> GST : {{processingGST = processingPayment*0.05 | currency : 'Rs.'}}
+                <br>
+                <br> Folding Payment:
+                <input type="number" ng-model="foldingPayment" ng-required="true"> GST : {{foldingGST = foldingPayment*0.05 | currency : 'Rs.'}}
+                <br>
+                <br> Dalali Expense:
+                <input type="number" ng-model="purchaseDalali" ng-required="true">
+                <br>
+                <br> Transport Expense:
+                <input type="number" ng-model="purchaseTransport" ng-required="true">
+                <br>
+                <br>
+                <button class="btn btn-primary" type="submit" ng-click="addPurchase(purchaseBillNumber, greyPurchasedQuantity, totalPurchasePayment, totalPurchaseGST, purchaseDalali, purchaseTransport)">ADD</button>
+                <button class="btn" type="reset" ng-click="reset()">RESET</button>
+            </div>
+
+            <div class="col-sm-6">
+                <h1>Selling Section</h1>
+                Selling Bill Number:
+                <input type="number" ng-model="sellBillNumber" ng-required="true">
+                <br>
+                <br> Grey Quantity Sold:
+                <input type="number" ng-model="greySoldQuantity" ng-required="true">
+                <br>
+                <br> Payment Recieved:
+                <input type="number" ng-model="sellPayment" ng-required="true"> GST : {{sellGST = sellPayment*0.05 | currency : 'Rs.'}}
+                <br>
+                <br> Dalali Paid (%):
+                <input type="number" ng-model="dalaliPercentage" ng-required="true"> Dalali : {{dalali = sellPayment*dalaliPercentage*0.01 | currency : 'Rs.'}}
+                <br>
+                <br>
+                <button ng-click="addSales(sellBillNumber, greySoldQuantity, sellPayment, sellGST, dalali)">ADD</button>
+                <button ng-click="reset()">RESET</button>
+                <br>
+                <br> Fent Rags:
+                <input type="number" ng-model="fent" ng-required="true"> GST : {{fentGST = fent*0.05 | currency : 'Rs.'}}
+                <br>
+                <br>
+            </div>
+        </form>
+    </div>
+    <div class="col-sm-12">
+        <h1>Profit Projection</h1>
+        <table class="table text-center" border="1px solid black" ng-repeat="purchase in purchases">
+            <thead>
+                <th>Type</th>
+                <th>Bill Number</th>
+                <th>Quantity</th>
+                <th>Amount</th>
+                <th>GST</th>
+                <th>Dalali + Transport</th>
+                <th>Remove</th>
+            </thead>
+            <tr class="active">
+                <td>
+                    Purchase
+                </td>
+                <td>
+                    <b>{{purchase.purchaseBillNumber}}</b>
+                </td>
+                <td>
+                    <b>{{purchase.greyPurchasedQuantity}}</b>
+                </td>
+                <td>
+                    <b>{{purchase.totalPurchasePayment}}</b>
+                </td>
+                <td>
+                    <b>{{purchase.totalPurchaseGST}}</b>
+                </td>
+                <td>
+                    <b>{{purchase.purchaseDalali + purchase.purchaseTransport}}</b>
+                </td>
+                <td>
+                    <b>
+                        <button ng-click="deletePurchase($index)">Delete Purchase</button>
+                    </b>
+                </td>
+            </tr>
+            <tr ng-repeat="sale in sales">
+                <td>
+                    Sales
+                </td>
+                <td>{{sale.sellBillNumber}}</td>
+                <td>{{sale.greySoldQuantity}}</td>
+                <td>{{sale.sellPayment}}</td>
+                <td>{{sale.sellGST}}</td>
+                <td>{{sale.dalali}}</td>
+                <td>
+                    <b>
+                        <button ng-click="deleteSales($index, sale)">Delete sale</button>
+                    </b>
+                </td>
+            </tr>
+            <tr>
+                <td>Total</td>
+                <td>
+                </td>
+                <td>
+                    <b>{{totalSellQuantity}}</b>
+                </td>
+                <td>
+                    <b>{{totalSellAmount}}</b>
+                </td>
+                <td>
+                    <b>{{totalSellGST}}</b>
+                </td>
+                <td>
+                    <b>{{totalDalali}}</b>
+                </td>
+                <td></td>
+            </tr>
+        </table>
+        <div class="col-sm-6">
+            <h1>Purchase Details</h1>
+            <h5>Total Quantity Purchased: {{greyPurchasedQuantity}} meters</h5>
+            <h5>Item Name: {{itemName}}</h5>
+            <h5>Total Payment Done : {{totalPurchasePayment = purchasePayment + processingPayment + foldingPayment + purchaseTransport
+                + purchaseDalali}}</h5>
+            <h5>Payment Per Metre : {{totalPurchasePayment/totalSellQuantity}}</h5>
+            <h5>Total GST For Purchase: {{totalPurchaseGST = purchaseGST + processingGST + foldingGST | currency : 'Rs.'}}</h5>
+        </div>
+        <div class="col-sm-6">
+            <h1>Selling Details</h1>
+            <h5>Total Quantity Sold: {{totalSellQuantity}} meters</h5>
+            <h5>Total Payment Recieved : {{totalSellAmount}}</h5>
+            <h5>Total GST For Sales : {{totalSellGST | currency : 'Rs.'}}</h5>
+            <h5>Total Dalali For Sales : {{totalDalali | currency : 'Rs.'}}</h5>
+            <h5>Fent Rags : {{fent | currency : 'Rs.'}}</h5>
+        </div>
+        <br>
+        <h1 class="text-center">Profit : {{profit = ((totalSellAmount + fent - totalPurchasePayment - totalDalali) - (totalSellGST - totalPurchaseGST - fentGST))
+            }} {{ " (" + profit*100/totalPurchasePayment + "%)"}}</h1>
+    </div>
+    <button ng-click="print()">Print this order</button>
+    <button ng-click="save()">Save this order</button>
+</body>
+
+</html>
